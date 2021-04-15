@@ -6,8 +6,8 @@ import com.test.automation.page.AutomationPracticePage;
 import java.io.File;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -30,7 +30,7 @@ class AutomationPracticeTest {
     driver.quit();
   }
 
-  @Test
+  @Disabled
   @DisplayName("Automation practice site")
   void testAutomationPracticeSite() throws InterruptedException {
 
@@ -46,8 +46,10 @@ class AutomationPracticeTest {
 
     // add 2 summer dresses to cart
     automationPracticePage.visitSummerDresses();
-    automationPracticePage.addDressToCartAndContinueShopping(1);
-    automationPracticePage.addDressToCartAndContinueShopping(2);
+    automationPracticePage.addDressToCart(1);
+    automationPracticePage.continueShopping();
+    automationPracticePage.addDressToCart(2);
+    automationPracticePage.continueShopping();
 
     // verify quantity in cart
     assertEquals(2, automationPracticePage.getCartQuantity());

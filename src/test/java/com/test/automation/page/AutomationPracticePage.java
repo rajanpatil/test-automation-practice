@@ -34,7 +34,7 @@ public class AutomationPracticePage {
     wait.until(ExpectedConditions.presenceOfElementLocated(By.id("center_column")));
   }
 
-  public void addDressToCartAndContinueShopping(final int dressLoc) {
+  public void addDressToCart(final int dressLoc) {
     // find first dress and add to cart
     WebElement dress = driver
         .findElement(By.xpath(String.format("//div[@id='center_column']/ul/li[%d]", dressLoc)));
@@ -48,6 +48,13 @@ public class AutomationPracticePage {
     driver
         .findElement(By.xpath("//span[@title='Continue shopping']")).click();
   }
+  
+  public void continueShopping(){
+    // continue shopping
+    driver
+        .findElement(By.xpath("//span[@title='Continue shopping']")).click();
+  }
+  
 
   public int getCartQuantity() {
     // verify quantity in cart
@@ -59,5 +66,9 @@ public class AutomationPracticePage {
     // proceed to sign in section
     driver.findElement(By.linkText("Sign in")).click();
     wait.until(ExpectedConditions.presenceOfElementLocated(By.id("SubmitLogin")));
+  }
+
+  public void closeBrowser() {
+    driver.quit();
   }
 }
