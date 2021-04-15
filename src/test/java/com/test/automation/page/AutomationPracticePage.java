@@ -34,19 +34,16 @@ public class AutomationPracticePage {
     wait.until(ExpectedConditions.presenceOfElementLocated(By.id("center_column")));
   }
 
-  public void addDressToCart(final int dressLoc) {
-    // find first dress and add to cart
+  public void addDressToCart(final int dressLocationOnPage) {
+    // find dress at location and add to cart
     WebElement dress = driver
-        .findElement(By.xpath(String.format("//div[@id='center_column']/ul/li[%d]", dressLoc)));
+        .findElement(By.xpath(String.format("//div[@id='center_column']/ul/li[%d]", dressLocationOnPage)));
     Actions dressAction = new Actions(driver);
     dressAction.moveToElement(dress).build().perform();
     driver.findElement(By.linkText("Add to cart")).click();
     // wait for cart popup
     wait.until(ExpectedConditions
         .presenceOfElementLocated(By.cssSelector("div[id='layer_cart'][style*='display: block']")));
-    // continue shopping
-    driver
-        .findElement(By.xpath("//span[@title='Continue shopping']")).click();
   }
   
   public void continueShopping(){
