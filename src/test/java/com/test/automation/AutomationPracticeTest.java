@@ -16,6 +16,11 @@ class AutomationPracticeTest {
   private WebDriver driver;
   private AutomationPracticePage automationPracticePage;
 
+  private static String getChromeDriverAbsolutePath() {
+    File chromeDriverFile = new File("./driver/chrome_89/chromedriver");
+    return chromeDriverFile.getAbsolutePath();
+  }
+
   @BeforeEach
   void beforeAll() {
     System.setProperty("webdriver.chrome.driver",
@@ -23,7 +28,6 @@ class AutomationPracticeTest {
     driver = new ChromeDriver();
     automationPracticePage = new AutomationPracticePage(driver);
   }
-
 
   @AfterEach
   void afterAll() {
@@ -42,7 +46,7 @@ class AutomationPracticeTest {
      */
 
     // Go to http://automationpractice.com/index.php
-    automationPracticePage.openAutomationPracticePage();
+    automationPracticePage.openAutomationPracticePage("http://automationpractice.com/index.php");
 
     // add 2 summer dresses to cart
     automationPracticePage.visitSummerDresses();
@@ -56,11 +60,6 @@ class AutomationPracticeTest {
 
     // move to sign in section
     automationPracticePage.moveToSignInSection();
-  }
-
-  private static String getChromeDriverAbsolutePath() {
-    File chromeDriverFile = new File("./driver/chrome_89/chromedriver");
-    return chromeDriverFile.getAbsolutePath();
   }
 
 }

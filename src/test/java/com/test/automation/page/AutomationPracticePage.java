@@ -20,8 +20,8 @@ public class AutomationPracticePage {
     this.wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
   }
 
-  public void openAutomationPracticePage() {
-    driver.get("http://automationpractice.com/index.php");
+  public void openAutomationPracticePage(String siteURL) {
+    driver.get(siteURL);
   }
 
   public void visitSummerDresses() {
@@ -37,7 +37,8 @@ public class AutomationPracticePage {
   public void addDressToCart(final int dressLocationOnPage) {
     // find dress at location and add to cart
     WebElement dress = driver
-        .findElement(By.xpath(String.format("//div[@id='center_column']/ul/li[%d]", dressLocationOnPage)));
+        .findElement(
+            By.xpath(String.format("//div[@id='center_column']/ul/li[%d]", dressLocationOnPage)));
     Actions dressAction = new Actions(driver);
     dressAction.moveToElement(dress).build().perform();
     driver.findElement(By.linkText("Add to cart")).click();
@@ -45,13 +46,13 @@ public class AutomationPracticePage {
     wait.until(ExpectedConditions
         .presenceOfElementLocated(By.cssSelector("div[id='layer_cart'][style*='display: block']")));
   }
-  
-  public void continueShopping(){
+
+  public void continueShopping() {
     // continue shopping
     driver
         .findElement(By.xpath("//span[@title='Continue shopping']")).click();
   }
-  
+
 
   public int getCartQuantity() {
     // verify quantity in cart

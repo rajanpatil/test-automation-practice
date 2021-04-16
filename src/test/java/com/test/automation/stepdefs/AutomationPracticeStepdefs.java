@@ -17,6 +17,11 @@ public class AutomationPracticeStepdefs {
 
   private AutomationPracticePage automationPracticePage;
 
+  private static String getChromeDriverAbsolutePath() {
+    File chromeDriverFile = new File("./driver/chrome_89/chromedriver");
+    return chromeDriverFile.getAbsolutePath();
+  }
+
   @Before
   public void beforeScenario() {
     System.setProperty("webdriver.chrome.driver",
@@ -30,9 +35,9 @@ public class AutomationPracticeStepdefs {
     automationPracticePage.closeBrowser();
   }
 
-  @Given("open automation practice site")
-  public void openAutomationPracticeSite() {
-    automationPracticePage.openAutomationPracticePage();
+  @Given("open {string}")
+  public void openAutomationPracticeSite(String siteURL) {
+    automationPracticePage.openAutomationPracticePage(siteURL);
   }
 
   @And("browse to summer dresses")
@@ -59,10 +64,5 @@ public class AutomationPracticeStepdefs {
   @And("proceed to sign in section")
   public void proceedToSignInSection() {
     automationPracticePage.moveToSignInSection();
-  }
-
-  private static String getChromeDriverAbsolutePath() {
-    File chromeDriverFile = new File("./driver/chrome_89/chromedriver");
-    return chromeDriverFile.getAbsolutePath();
   }
 }

@@ -1,7 +1,7 @@
 Feature: Automation practice test
 
   Scenario: Add summer dresses to cart and proceed to login
-    Given open automation practice site
+    Given open "http://automationpractice.com/index.php"
     And browse to summer dresses
     When Add 1st summer dress to cart
     And Continue shopping
