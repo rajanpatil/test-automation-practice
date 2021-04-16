@@ -40,8 +40,8 @@ public class AutomationPracticeStepdefs {
     automationPracticePage.visitSummerDresses();
   }
 
-  @When("Add summer dress from location {int} on page to cart")
-  public void summerDressAddedToCartAndContinueShopping(int dressLocationOnPage) {
+  @When("Add {int}(st)(nd) summer dress to cart")
+  public void addSummerDressToCart(int dressLocationOnPage) {
     automationPracticePage.addDressToCart(dressLocationOnPage);
   }
 
