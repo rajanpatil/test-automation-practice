@@ -8,6 +8,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -17,7 +18,7 @@ class AutomationPracticeTest {
   private AutomationPracticePage automationPracticePage;
 
   private static String getChromeDriverAbsolutePath() {
-    File chromeDriverFile = new File("./driver/chrome_89/chromedriver");
+    File chromeDriverFile = new File("./driver/chromedriver");
     return chromeDriverFile.getAbsolutePath();
   }
 

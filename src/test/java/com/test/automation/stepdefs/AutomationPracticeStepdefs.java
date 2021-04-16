@@ -18,7 +18,7 @@ public class AutomationPracticeStepdefs {
   private AutomationPracticePage automationPracticePage;
 
   private static String getChromeDriverAbsolutePath() {
-    File chromeDriverFile = new File("./driver/chrome_89/chromedriver");
+    File chromeDriverFile = new File("./driver/chromedriver");
     return chromeDriverFile.getAbsolutePath();
   }
 
