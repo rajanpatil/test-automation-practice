@@ -38,7 +38,7 @@ plugin is installed in IDE)
 
 ### Test reports
 
-The test reports are published to https://reports.cucumber.io/, the unique test report link is
+The test reports are published to https://reports.cucumber.io, the unique test report link is
 generated after test execution and can be found on console.
 
 ### Libraries & Frameworks
