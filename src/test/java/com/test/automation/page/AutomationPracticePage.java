@@ -1,13 +1,13 @@
 package com.test.automation.page;
 
 import static java.lang.Integer.parseInt;
+import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
 
 import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AutomationPracticePage {
@@ -17,7 +17,7 @@ public class AutomationPracticePage {
 
   public AutomationPracticePage(final WebDriver webDriver) {
     this.driver = webDriver;
-    this.wait = new WebDriverWait(webDriver, Duration.ofSeconds(10));
+    this.wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
   }
 
   public void openAutomationPracticePage(String siteURL) {
@@ -30,8 +30,8 @@ public class AutomationPracticePage {
 
     // click on summer dresses link
     wait
-        .until(ExpectedConditions.presenceOfElementLocated(By.linkText("Summer Dresses"))).click();
-    wait.until(ExpectedConditions.presenceOfElementLocated(By.id("center_column")));
+        .until(presenceOfElementLocated(By.linkText("Summer Dresses"))).click();
+    wait.until(presenceOfElementLocated(By.id("center_column")));
   }
 
   public void addDressToCart(final int dressLocationOnPage) {
@@ -41,16 +41,19 @@ public class AutomationPracticePage {
             By.xpath(String.format("//div[@id='center_column']/ul/li[%d]", dressLocationOnPage)));
     Actions dressAction = new Actions(driver);
     dressAction.moveToElement(dress).build().perform();
-    driver.findElement(By.linkText("Add to cart")).click();
-    // wait for cart popup
-    wait.until(ExpectedConditions
-        .presenceOfElementLocated(By.cssSelector("div[id='layer_cart'][style*='display: block']")));
+    wait.until(presenceOfElementLocated(By.linkText("Add to cart"))).click();
+    // wait for cart popup show up
+    wait.until(presenceOfElementLocated(
+        By.xpath("//div[@id='layer_cart'][contains(@style,'display: block')]")));
   }
 
   public void continueShopping() {
     // continue shopping
     driver
         .findElement(By.xpath("//span[@title='Continue shopping']")).click();
+    // wait for cart popup to close
+    wait.until(presenceOfElementLocated(
+        By.xpath("//div[@id='layer_cart'][contains(@style,'display: none')]")));
   }
 
 
@@ -63,7 +66,7 @@ public class AutomationPracticePage {
   public void moveToSignInSection() {
     // proceed to sign in section
     driver.findElement(By.linkText("Sign in")).click();
-    wait.until(ExpectedConditions.presenceOfElementLocated(By.id("SubmitLogin")));
+    wait.until(presenceOfElementLocated(By.id("SubmitLogin")));
   }
 
   public void closeBrowser() {
