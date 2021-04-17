@@ -33,8 +33,13 @@ Go to class **RunCucumberTest** in **com.test.automation** package and run it.
 
 Or
 
-Go to **automation-practice.feature** in test resources dir and run it (Make sure cucumber plugin is
-installed in IDE)
+Go to **automation-practice.feature** in test resources directory and run it (Make sure cucumber
+plugin is installed in IDE)
+
+### Test reports
+
+The test reports are published to https://reports.cucumber.io/, the unique test report link is
+generated after test execution and can be found on console.
 
 ### Libraries & Frameworks
 
