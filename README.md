@@ -17,7 +17,7 @@ that summer dresses can be added to the cart and it’s possible to proceed to t
 
 1. Please install tools listed in **Pre-requisites** section.
 2. Download appropriate version of [chrome driver](https://chromedriver.chromium.org/downloads)
-   based on OS and local chrome browser version.
+   based on local OS and chrome browser version.
 3. Copy chrome driver into **<project-dir>/chrome/** directory.
 
 **P.S:** The project is already configured with **chrome driver version 89** for **MacOS**. Please
@@ -41,7 +41,7 @@ plugin is installed in IDE)
 The test reports are published to https://reports.cucumber.io, the unique test report link is
 generated after test execution and can be found on console.
 
-### Libraries & Frameworks
+### Libraries and frameworks used
 
 - JUnit 5.7.1
 - Selenium 4.0.0-beta-2

@@ -20,14 +20,13 @@ public class AutomationPracticePage {
     this.wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
   }
 
-  public void openAutomationPracticePage(String siteURL) {
+  public void openAutomationPracticePage(final String siteURL) {
     driver.get(siteURL);
   }
 
   public void visitSummerDresses() {
     // click on dresses
     driver.findElement(By.xpath("//div[@id='block_top_menu']/ul/li[2]")).click();
-
     // click on summer dresses link
     wait
         .until(presenceOfElementLocated(By.linkText("Summer Dresses"))).click();
@@ -58,7 +57,7 @@ public class AutomationPracticePage {
 
 
   public int getCartQuantity() {
-    // verify quantity in cart
+    // get quantity from cart
     WebElement cartQuantity = driver.findElement(By.className("ajax_cart_quantity"));
     return parseInt(cartQuantity.getText());
   }

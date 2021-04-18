@@ -36,7 +36,7 @@ public class AutomationPracticeStepdefs {
   }
 
   @Given("open {string}")
-  public void openAutomationPracticeSite(String siteURL) {
+  public void openAutomationPracticeSite(final String siteURL) {
     automationPracticePage.openAutomationPracticePage(siteURL);
   }
 
@@ -46,7 +46,7 @@ public class AutomationPracticeStepdefs {
   }
 
   @When("Add {int}(st)(nd) summer dress to cart")
-  public void addSummerDressToCart(int dressLocationOnPage) {
+  public void addSummerDressToCart(final int dressLocationOnPage) {
     automationPracticePage.addDressToCart(dressLocationOnPage);
   }
 
@@ -56,8 +56,7 @@ public class AutomationPracticeStepdefs {
   }
 
   @Then("cart has {int} dresses")
-  public void cartHasDresses(int expectedQuantityInCart) {
-    // verify quantity in cart
+  public void cartHasDresses(final int expectedQuantityInCart) {
     assertEquals(expectedQuantityInCart, automationPracticePage.getCartQuantity());
   }
 
