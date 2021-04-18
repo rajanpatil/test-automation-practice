@@ -20,7 +20,7 @@ that summer dresses can be added to the cart and it’s possible to proceed to t
    based on local OS and chrome browser version.
 3. Copy chrome driver into **<project-dir>/chrome/** directory.
 
-**P.S:** The project is already configured with **chrome driver version 89** for **MacOS**. Please
+**Note:** The project is already configured with **chrome driver version 89** for **MacOS**. Please
 ignore step 2 and step 3 if you are using **MacOS** and **Chrome version 89**.
 
 ### How to run tests
