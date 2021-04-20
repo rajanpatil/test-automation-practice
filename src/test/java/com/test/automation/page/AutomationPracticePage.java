@@ -17,7 +17,7 @@ public class AutomationPracticePage {
 
   public AutomationPracticePage(final WebDriver webDriver) {
     this.driver = webDriver;
-    this.wait = new WebDriverWait(webDriver, Duration.ofSeconds(5));
+    this.wait = new WebDriverWait(webDriver, Duration.ofSeconds(15));
   }
 
   public void openAutomationPracticePage(final String siteURL) {
